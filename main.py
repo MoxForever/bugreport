@@ -22,7 +22,10 @@ def make_inline_pic(r_id: int, url: str):
 
 @dp.message()
 async def start(message: aiogram.types.Message):
-    await message.answer("Test bot for bugreporting\n\nUse h, s, v as arg in inline")
+    await message.answer(
+        "Test bot for bugreporting\n\nUse h, s, v as arg in inline\n\n"
+        "Source: github.com/moxForever/bugreport"
+    )
 
 
 @dp.inline_query()
