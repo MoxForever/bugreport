@@ -1,6 +1,7 @@
 import asyncio
 import os
 import aiogram
+from aiogram.utils.keyboard import InlineKeyboardBuilder
 
 bot = aiogram.Bot(token=os.environ.get("BOT_TOKEN", ""))
 dp = aiogram.Dispatcher()
@@ -22,6 +23,12 @@ def make_inline_pic(r_id: int, url: str):
 
 @dp.message()
 async def start(message: aiogram.types.Message):
+    builder = InlineKeyboardBuilder()
+    builder.row(
+        aiogram.types.InlineKeyboardButton(
+            text="Start Inline", switch_inline_query_current_chat="v"
+        )
+    )
     await message.answer(
         "Test bot for bugreporting\n\nUse h, s, v as arg in inline\n\n"
         "Source: github.com/moxForever/bugreport"
