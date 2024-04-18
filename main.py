@@ -31,7 +31,7 @@ async def start(message: aiogram.types.Message):
     )
     await message.answer(
         "Test bot for bugreporting\n\nUse h, s, v as arg in inline\n\n"
-        "Source: github.com/moxForever/bugreport"
+        "Source: github.com/moxForever/bugreport", disable_web_page_preview=True
     )
 
 
