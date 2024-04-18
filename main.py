@@ -1,8 +1,10 @@
 import asyncio
 import os
+import logging
 import aiogram
 from aiogram.utils.keyboard import InlineKeyboardBuilder
 
+logging.basicConfig(level=logging.DEBUG)
 bot = aiogram.Bot(token=os.environ.get("BOT_TOKEN", ""))
 dp = aiogram.Dispatcher()
 
@@ -31,8 +33,9 @@ async def start(message: aiogram.types.Message):
     )
     await message.answer(
         "Test bot for bugreporting\n\nUse h, s, v as arg in inline\n\n"
-        "Source: github.com/moxForever/bugreport", disable_web_page_preview=True,
-        reply_markup=builder.as_markup()
+        "Source: github.com/moxForever/bugreport",
+        disable_web_page_preview=True,
+        reply_markup=builder.as_markup(),
     )
 
 
